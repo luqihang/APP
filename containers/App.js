@@ -1,11 +1,18 @@
 import React, { Component, PropTypes } from 'react'
+import { Grid, Row, Col } from 'react-bootstrap'
+
 import { connect } from 'react-redux'
 import { pushState } from 'redux-router'
 import Explore from '../components/Explore'
 import { resetErrorMessage } from '../actions'
 
+
+
+import './App.less'
+
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import SideMenu from '../components/SideMenu'
 
 class App extends Component {
   constructor(props) {
@@ -44,15 +51,62 @@ class App extends Component {
   render() {
     const { children, inputValue } = this.props
     return (
-      <div>
-        <Header />
+      <Grid fluid id='app'>
+        <Row>
+          <Header className='header' />
+        </Row>
+        <Row className='view view-sidebar-full'>
+          <div className='view-sidebar'>
+            <div className='sidebar'>
+              <div className='sidebar-icon sidebar-fold'></div>
+
+              <div className='sidebar-nav sidebar-main sidebar-fold'>
+                <div className='sidebar-title'>
+                  <span className='sidebar-title-icon'>**</span>
+                  <span className='sidebar-title-text'>产品与服务</span>
+                  <span className='sidebar-manage'>设置</span>
+                </div>
+                <ul className='sidebar-trans'>
+                  <li className='nav-item'>
+                    <span className='nav-icon'>icon</span>
+                    <span className='nav-title'>组件管理</span>
+                  </li>
+                  <li className='nav-item active'>
+
+                  </li>
+                  <li className='nav-item'>
+
+                  </li>
+                </ul>
+              </div>
+
+              <div className='sidebar-nav sidebar-main sidebar-fold'>
+                <div className='sidebar-title'>
+                  <span className='sidebar-title-icon'></span>
+                  <span className='sidebar-title-text'>产品与服务</span>
+                  <span className='sidebar-manage'></span>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div className='view-main view-main-full'>
+            <div className="view-main-navbar">
+            </div>
+            <div className="view-main-body">
+            </div>
+          </div>
+        </Row>
+        <SideMenu />
         <Explore value={inputValue}
                  onChange={this.handleChange} />
         <hr />
         {this.renderErrorMessage()}
         {children}
         <Footer />
-      </div>
+      </Grid>
+
     )
   }
 }

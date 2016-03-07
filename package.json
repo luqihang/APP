@@ -1,23 +1,26 @@
 {
-  "name": "redux-real-world-example",
+  "name": "APP Designer",
   "version": "0.0.0",
-  "description": "Redux real-world example",
+  "description": "在线app制作管理平台控制后台",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rackt/redux.git"
+    "url": "https://github.com/luqihang/app.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rackt/redux/issues"
+    "url": "https://github.com/luqihang/app/issues"
   },
-  "homepage": "http://rackt.github.io/redux",
+  "homepage": "http://luqihang.github.io/app/",
   "dependencies": {
+    "classnames": "^2.2.3",
+    "extract-text-webpack-plugin": "^1.0.1",
     "history": "^1.17.0",
     "humps": "^0.6.0",
     "isomorphic-fetch": "^2.1.1",
+    "less": "^2.6.1",
     "lodash": "^3.10.1",
     "normalizr": "^1.0.0",
     "react": "^0.14.0",
@@ -37,13 +40,15 @@
     "babel-plugin-react-transform": "^1.1.0",
     "brfs": "^1.4.3",
     "concurrently": "^0.1.1",
+    "css-loader": "^0.23.1",
     "express": "^4.13.3",
     "fs": "0.0.2",
-    "react-sidenav": "^1.0.3",
-    "react-transform-hmr": "^1.0.0",
+    "less-loader": "^2.2.2",
+    "react-transform-hmr": "^1.0.4",
     "redux-devtools": "^3.0.0",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.1",
+    "style-loader": "^0.13.0",
     "transform-loader": "^0.2.3",
     "webpack": "^1.9.11",
     "webpack-dev-middleware": "^1.2.0",

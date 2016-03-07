@@ -1,9 +1,10 @@
 
-import React from 'React'
+import React, { Component, PropTypes }  from 'react'
 
 import { connect } from 'react-redux'
 
 class ComponentPage extends Component {
+  
   constructor(props) {
     super(props)
   }
@@ -13,7 +14,7 @@ class ComponentPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    
+
   }
 
   componentDidMount() {

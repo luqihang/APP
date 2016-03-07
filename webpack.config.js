@@ -18,12 +18,25 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: [ 'babel' ],
-      exclude: /node_modules/,
-      include: __dirname
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: [ 'babel' ],
+        exclude: /node_modules/,
+        include: __dirname
+      },
+      // Extract css files
+      {
+          test: /\.css$/,
+          loader: "style-loader!css-loader"
+      },
+      // Optionally extract less files
+      // or any other compile-to-css language
+      {
+          test: /\.less$/,
+          loader: "style-loader!css-loader!less-loader"
+      },
+    ]
   }
 }
 
