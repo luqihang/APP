@@ -1,211 +1,236 @@
+//
+// #app {
+//   height: 100%;
+//   overflow: hidden;
+//
+//   .header {
+//     background-color: "#6bc1f2";
+//     border-radius: '0px';
+//     border: '0px';
+//     color: #fff;
+//   }
+//
+//   .view {
+//     position: absolute;
+//     width: 100%;
+//     top: 50px;
+//     bottom: 0;
+//     overflow: hidden;
+//
+//
+//     .view-sidebar {
+//       width: 0px;
+//       display: none;
+//       position: fixed;
+//       top: 50px;
+//       bottom: 0px;
+//       background-color: #293038;
+//       color: #FFF;
+//       z-index: 102;
+//       overflow-x: hidden;
+//
+//       transition: all 0.2s ease;
+//       -o-transition: all 0.2s ease;
+//       -ms-transition: all 0.2s ease;
+//       -moz-transition: all 0.2s ease;
+//       -webkit-transition: all 0.2s ease;
+//
+//       .sidebar-nav {
+//         width: 180px;
+//
+//         .sidebar-title {
+//           height: 40px;
+//           background: #22282e;
+//           color: #fff;
+//           line-height: 40px;
+//           position: relative;
+//           cursor: pointer;
+//           -webkit-user-select: none;
+//
+//
+//           .sidebar-title-icon {
+//             display: inline-block;
+//             margin: 0 8px 0 20px;
+//             vertical-align: middle;
+//             transition: transform 0.12s;
+//             -o-transition: -o-transform 0.12s;
+//             -ms-transition: -ms-transform 0.12s;
+//             -moz-transition: -moz-transform 0.12s;
+//             -webkit-transition: -webkit-transform 0.12s;
+//           }
+//
+//           .sidebar-manage {
+//             vertical-align: middle;
+//             position: absolute;
+//             height: 40px;
+//             width: 40px;
+//             right: 0;
+//           }
+//         }
+//
+//         ul {
+//           margin: 0px;
+//           padding: 0px;
+//           list-style: none;
+//           overflow: hidden;
+//         }
+//
+//         .sidebar-trans {
+//
+//           transition: all 0.12s ease,0.12s ease;
+//           -o-transition: all 0.12s ease,0.12s ease;
+//           -ms-transition: all 0.12s ease,0.12s ease;
+//           -moz-transition: all 0.12s ease,0.12s ease;
+//           -webkit-transition: all 0.12s ease,0.12s ease;
+//
+//           .nav-item {
+//             position: relative;
+//             height: 40px;
+//             line-height: 40px;
+//
+//             .nav-icon {
+//               width: 50px;
+//               text-align: center;
+//               font-size: 16px;
+//               float: left;
+//               color: #aeb9c2;
+//             }
+//
+//             .nav-title {
+//               float: left;
+//               overflow: hidden;
+//               color: #fff;
+//               white-space: nowrap;
+//               text-overflow: ellipsis;
+//               display: block;
+//               width: 130px;
+//             }
+//
+//             &.active {
+//               background-color: #0099cc;
+//             }
+//           }
+//         }
+//
+//         &.sidebar-nav-fold {
+//
+//           .sidebar-title {
+//             background: #37424f;
+//             border-bottom: 1px solid #414d5c;
+//           }
+//
+//         }
+//       }
+//     }
+//
+//     .view-main {
+//       width: auto;
+//       position: absolute;
+//       top: 0px;
+//       left: 0px;
+//       bottom: 0px;
+//       right: 0px;
+//       overflow: hidden;
+//       background: #FFF;
+//
+//       .view-main-navbar {
+//         width: 0px;
+//         float: left;
+//         background-color: #EAEDF1;
+//         position: absolute;
+//         top: 0px;
+//         bottom: 0px;
+//         z-index: 2;
+//         overflow: hidden;
+//
+//         transition: all 0.2s ease;
+//         -o-transition: all 0.2s ease;
+//         -ms-transition: all 0.2s ease;
+//         -moz-transition: all 0.2s ease;
+//         -webkit-transition: all 0.2s ease;
+//
+//
+//       }
+//
+//       .view-main-body {
+//         position: absolute;
+//         width: auto;
+//         top: 0px;
+//         bottom: 0px;
+//         left: 0px;
+//         right: 0px;
+//         overflow: hidden;
+//         overflow-y: auto;
+//
+//         transition: all 0.2s ease;
+//         -o-transition: all 0.2s ease;
+//         -ms-transition: all 0.2s ease;
+//         -moz-transition: all 0.2s ease;
+//         -webkit-transition: all 0.2s ease;
+//       }
+//
+//       &.view-main-full {
+//         .view-main-navbar {
+//           width: 180px;
+//         }
+//
+//         .view-main-body {
+//           left: 180px;
+//         }
+//       }
+//     }
+//
+//     &.view-sidebar-full {
+//       .view-sidebar {
+//         width: 180px;
+//         display: block;
+//       }
+//
+//       .view-main {
+//         left: 180px;
+//       }
+//     }
+//
+//     &.view-sidebar-mini {
+//       .view-sidebar {
+//         width: 50px;
+//         display: block;
+//
+//         .sidebar-title .sidebar-title-text {
+//           display: none;
+//         }
+//       }
+//
+//       .view-main {
+//         left: 50px;
+//       }
+//     }
+//   }
+//
+//
+// }
 
 #app {
-  height: 100%;
-  overflow: hidden;
-
-  .header {
-    background-color: "#6bc1f2";
-    border-radius: '0px';
-    border: '0px';
-    color: #fff;
-  }
+  position: absolute;;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
 
   .view {
-    position: absolute;
-    width: 100%;
-    top: 50px;
-    bottom: 0;
-    overflow: hidden;
-
+    flex: 1;
+    display: flex;
+    flex-direction: row;
 
     .view-sidebar {
-      width: 0px;
-      display: none;
-      position: fixed;
-      top: 50px;
-      bottom: 0px;
-      background-color: #293038;
-      color: #FFF;
-      z-index: 102;
-      overflow-x: hidden;
-
-      transition: all 0.2s ease;
-      -o-transition: all 0.2s ease;
-      -ms-transition: all 0.2s ease;
-      -moz-transition: all 0.2s ease;
-      -webkit-transition: all 0.2s ease;
-
-      .sidebar-nav {
-        width: 180px;
-
-        .sidebar-title {
-          height: 40px;
-          background: #22282e;
-          color: #fff;
-          line-height: 40px;
-          position: relative;
-          cursor: pointer;
-          -webkit-user-select: none;
-
-
-          .sidebar-title-icon {
-            display: inline-block;
-            margin: 0 8px 0 20px;
-            vertical-align: middle;
-            transition: transform 0.12s;
-            -o-transition: -o-transform 0.12s;
-            -ms-transition: -ms-transform 0.12s;
-            -moz-transition: -moz-transform 0.12s;
-            -webkit-transition: -webkit-transform 0.12s;
-          }
-
-          .sidebar-manage {
-            vertical-align: middle;
-            position: absolute;
-            height: 40px;
-            width: 40px;
-            right: 0;
-          }
-        }
-
-        ul {
-          margin: 0px;
-          padding: 0px;
-          list-style: none;
-          overflow: hidden;
-        }
-
-        .sidebar-trans {
-
-          transition: all 0.12s ease,0.12s ease;
-          -o-transition: all 0.12s ease,0.12s ease;
-          -ms-transition: all 0.12s ease,0.12s ease;
-          -moz-transition: all 0.12s ease,0.12s ease;
-          -webkit-transition: all 0.12s ease,0.12s ease;
-
-          .nav-item {
-            position: relative;
-            height: 40px;
-            line-height: 40px;
-
-            .nav-icon {
-              width: 50px;
-              text-align: center;
-              font-size: 16px;
-              float: left;
-              color: #aeb9c2;
-            }
-
-            .nav-title {
-              float: left;
-              overflow: hidden;
-              color: #fff;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-              display: block;
-              width: 130px;
-            }
-
-            &.active {
-              background-color: #0099cc;
-            }
-          }
-        }
-
-        &.sidebar-nav-fold {
-
-          .sidebar-title {
-            background: #37424f;
-            border-bottom: 1px solid #414d5c;
-          }
-
-        }
-      }
+      flex: 0;
+      background-color: #4F5A65;
     }
 
     .view-main {
-      width: auto;
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      bottom: 0px;
-      right: 0px;
-      overflow: hidden;
-      background: #FFF;
-
-      .view-main-navbar {
-        width: 0px;
-        float: left;
-        background-color: #EAEDF1;
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        z-index: 2;
-        overflow: hidden;
-
-        transition: all 0.2s ease;
-        -o-transition: all 0.2s ease;
-        -ms-transition: all 0.2s ease;
-        -moz-transition: all 0.2s ease;
-        -webkit-transition: all 0.2s ease;
-
-
-      }
-
-      .view-main-body {
-        position: absolute;
-        width: auto;
-        top: 0px;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        overflow: hidden;
-        overflow-y: auto;
-
-        transition: all 0.2s ease;
-        -o-transition: all 0.2s ease;
-        -ms-transition: all 0.2s ease;
-        -moz-transition: all 0.2s ease;
-        -webkit-transition: all 0.2s ease;
-      }
-
-      &.view-main-full {
-        .view-main-navbar {
-          width: 180px;
-        }
-
-        .view-main-body {
-          left: 180px;
-        }
-      }
-    }
-
-    &.view-sidebar-full {
-      .view-sidebar {
-        width: 180px;
-        display: block;
-      }
-
-      .view-main {
-        left: 180px;
-      }
-    }
-
-    &.view-sidebar-mini {
-      .view-sidebar {
-        width: 50px;
-        display: block;
-
-        .sidebar-title .sidebar-title-text {
-          display: none;
-        }
-      }
-
-      .view-main {
-        left: 50px;
-      }
+      flex: 1;
     }
   }
-
-
 }

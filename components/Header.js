@@ -6,23 +6,14 @@ const headerStyle = {
     // backgroundImage: "linear-gradient(-20deg, #09b7b9 30%, #1c51a4 100%)",
     borderRadius: '0px',
     border: '0px',
+    height: '50px',
+    lineHeight: '50px',
 }
 
 const navbarInstance = (
-  <Navbar style={headerStyle} inverse>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <a href="#">App Factory</a>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav pullRight>
-        <NavItem eventKey={1} href="#">用户</NavItem>
-        <NavItem eventKey={2} href="#">Link Right</NavItem>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
+<div>
+  header
+</div>
 );
 
 export default class Header extends Component {
@@ -31,6 +22,10 @@ export default class Header extends Component {
     }
 
     render() {
-        return navbarInstance;
+        return (
+          <div style={headerStyle}>
+            header
+          </div>
+        );
     }
 }

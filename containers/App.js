@@ -6,19 +6,36 @@ import { pushState } from 'redux-router'
 import Explore from '../components/Explore'
 import { resetErrorMessage } from '../actions'
 
-
-
 import './App.less'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import SideMenu from '../components/SideMenu'
+
+import { SideNav, Nav } from '../components/SideNav'
+
+var navi = [
+    { id: 'home', icon: 'fa fa-dashboard' , text: '首页'},
+    { id: 'app', icon: 'fa fa-cube', text: '我的APP' ,
+        navlist: [
+          { icon: 'fa fa-desktop', id: 'manage' ,text: 'Manage Product' },
+          { icon: 'fa fa-cog', id: 'suppliers' ,text: 'Suppliers' }
+        ]
+    },
+    { id: 'component', icon: 'fa fa-database' ,text: '组件市场'},
+    { id: 'data', icon: 'fa fa-truck' ,text: '数据管理'},
+    { id: 'about', icon: 'fa fa-bar-chart' ,text: '关于' }
+];
+
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
     this.handleDismissClick = this.handleDismissClick.bind(this)
+    this.handleNavSelection = this.handleNavSelection.bind(this)
+
+    this.state = {};
+    this.state.selected = 'home';
   }
 
   handleDismissClick(e) {
@@ -27,7 +44,17 @@ class App extends Component {
   }
 
   handleChange(nextValue) {
-    this.props.pushState(null, `/${nextValue}`)
+    selected = e.id;
+    this.props.pushState(null, `/${selected}`)
+  }
+
+  handleNavSelection(nav) {
+    const selected = nav.id;
+    this.setState({
+      selected: selected
+    });
+    console.log(`/${selected}`);
+    this.props.pushState(null, `/${selected}`)
   }
 
   renderErrorMessage() {
@@ -51,61 +78,28 @@ class App extends Component {
   render() {
     const { children, inputValue } = this.props
     return (
-      <Grid fluid id='app'>
-        <Row>
-          <Header className='header' />
-        </Row>
-        <Row className='view view-sidebar-full'>
-          <div className='view-sidebar'>
-            <div className='sidebar'>
-              <div className='sidebar-icon sidebar-fold'></div>
-
-              <div className='sidebar-nav sidebar-main sidebar-fold'>
-                <div className='sidebar-title'>
-                  <span className='sidebar-title-icon'>**</span>
-                  <span className='sidebar-title-text'>产品与服务</span>
-                  <span className='sidebar-manage'>设置</span>
-                </div>
-                <ul className='sidebar-trans'>
-                  <li className='nav-item'>
-                    <span className='nav-icon'>icon</span>
-                    <span className='nav-title'>组件管理</span>
-                  </li>
-                  <li className='nav-item active'>
-
-                  </li>
-                  <li className='nav-item'>
-
-                  </li>
-                </ul>
-              </div>
-
-              <div className='sidebar-nav sidebar-main sidebar-fold'>
-                <div className='sidebar-title'>
-                  <span className='sidebar-title-icon'></span>
-                  <span className='sidebar-title-text'>产品与服务</span>
-                  <span className='sidebar-manage'></span>
-                </div>
-              </div>
-
-
+      <div id='app'>
+        <Header className='header' />
+        <div className='view'>
+          <div className="view-sidebar">
+            <div style={{width:180}}>
+              <SideNav navtype='icon-left' selected={this.state.selected} navs={navi} onSelection={this.handleNavSelection}/>
             </div>
           </div>
-          <div className='view-main view-main-full'>
+
+
+          <div className='view-main'>
             <div className="view-main-navbar">
             </div>
             <div className="view-main-body">
+              {children}
             </div>
           </div>
-        </Row>
-        <SideMenu />
-        <Explore value={inputValue}
-                 onChange={this.handleChange} />
-        <hr />
-        {this.renderErrorMessage()}
-        {children}
-        <Footer />
-      </Grid>
+          {this.renderErrorMessage()}
+
+        </div>
+
+      </div>
 
     )
   }
